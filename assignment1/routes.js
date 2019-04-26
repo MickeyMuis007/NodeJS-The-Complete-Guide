@@ -1,6 +1,6 @@
 const welcomeTag = '<h1>Hi, Welcome to Assignment 1</h2>';
 const userInputTag = '<input type="text" name="username" />';
-const saveButton = '<button type="submit">Save</button>"';
+const saveButton = '<button type="submit">Save</button>';
 const userForm = `<form action="/create-user" method="POST">${userInputTag}${saveButton}</form>`;
 const welcomeBody = `<body>${welcomeTag}${userForm}</body>`;
 const title = '<head><title>Assignment 1</title></head>';
