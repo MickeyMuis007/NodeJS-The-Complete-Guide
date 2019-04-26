@@ -25,10 +25,16 @@ const server = http.createServer((req, res) => {
             const parsedBody = Buffer.concat(body).toString();
             console.log(parsedBody);
             const message = parsedBody.split('=')[1];
-            fs.writeFileSync('message.txt', message);
-            res.statusCode = 302;
-            res.setHeader('Location', '/');
-            return res.end();
+            
+            // The callback function is called once async execution is called.
+            // If any error happens the errors will be passed threw as a parameter in this case err.
+            // Default errror is null
+            fs.writeFile('message.txt', message, err => {
+                res.statusCode = 302;
+                res.setHeader('Location', '/');
+                return res.end();
+            });
+            
         });
     }
 
