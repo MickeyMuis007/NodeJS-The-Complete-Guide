@@ -9,5 +9,8 @@
     "start-server": "node app.js"
   },
   "author": "Michael Alan Hendricks",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
 }
