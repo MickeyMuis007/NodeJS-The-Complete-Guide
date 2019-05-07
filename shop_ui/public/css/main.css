@@ -94,15 +94,15 @@ main {
 
 button {
     font: inherit;
-    border: 1px solid plum;
-    color: plum;
-    background-color: white;
+    border: 1px solid #00695c;
+    color: #00695c;
+    background: white;
     border-radius: 3px;
     cursor: pointer;
 }
 
-button:hover,
-button:active {
-    background-color: plum;
-    color: white;
+.btn:hover,
+.btn:active {
+  background-color: #00695c;
+  color: white;
 }
