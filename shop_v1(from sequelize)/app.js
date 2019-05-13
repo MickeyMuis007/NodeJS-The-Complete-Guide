@@ -23,11 +23,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   User.findByPk(1)
-  .then(user => {
-    req.user = user
-    next();
-  })
-  .catch(err => console.log(err));
+    .then(user => {
+      req.user = user
+      next();
+    })
+    .catch(err => console.log(err));
 })
 
 app.use('/admin', adminRoutes);
@@ -46,8 +46,8 @@ Product.belongsToMany(Cart, { through: CartItem });
 
 // Sync your models you define to the database and create tables etc based on the models definition you specified.
 sequelize
-  .sync({ force: true })
-  // .sync()
+  // .sync({ force: true })
+  .sync()
   .then(result => {
     return User.findByPk(1);
   })
@@ -61,7 +61,9 @@ sequelize
     return user;
   })
   .then(user => {
-    // console.log(user);
+    return user.createCart();
+  })
+  .then(cart => {
     app.listen(3000);
   }).catch(err => {
     console.log(err);
