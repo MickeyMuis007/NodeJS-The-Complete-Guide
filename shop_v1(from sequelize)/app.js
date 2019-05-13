@@ -34,12 +34,12 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
-// User.hasMany(Product);
+User.hasMany(Product);
 
 // Sync your models you define to the database and create tables etc based on the models definition you specified.
 sequelize
-  // .sync({ force: true })
-  .sync()
+  .sync({ force: true })
+  // .sync()
   .then(result => {
     return User.findByPk(1);
   })
