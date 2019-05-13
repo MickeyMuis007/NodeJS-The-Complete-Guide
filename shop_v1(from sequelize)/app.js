@@ -24,7 +24,7 @@ app.use(errorController.get404);
 
 // Sync your models you define to the database and create tables etc based on the models definition you specified.
 sequelize.sync().then(result => {
-  console.log(result);
+  console.log('Sequelize successfully connected!');
 }).catch(err => {
   console.log(err);
 }); 
