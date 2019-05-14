@@ -7,15 +7,15 @@ class Product {
     this.price = price;
     this.description = description;
     this.imageUrl = imageUrl;
-    this.id = new mongodb.ObjectId(id);
+    this._id = id ? new mongodb.ObjectId(id) : null;
   }
 
   save() {
     const db = getDb();
     let dbOp;
-    if (this.id){
+    if (this._id){
       // Update the product
-      dbOp = db.collection('products').updateOne({_id: this.id}, {$set: this});
+      dbOp = db.collection('products').updateOne({_id: this._id}, {$set: this});
     } else {
       dbOp = db.collection('products').insertOne(this);
     }
