@@ -22,7 +22,7 @@ class Product {
     }
     return dbOp
       .then(result => {
-        console.log(result);
+        console.log('Successfully Saved!');
       })
       .catch(err => {
         console.log(err);
