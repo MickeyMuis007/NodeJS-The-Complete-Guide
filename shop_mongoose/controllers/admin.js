@@ -20,7 +20,8 @@ exports.postAddProduct = (req, res, next) => {
     title: title,
     price: price,
     description: description,
-    imageUrl: imageUrl
+    imageUrl: imageUrl,
+    userId: req.user      // Mongoose will extract the user id(_id). TODO: How it does this I must find out?
   });
   product.save()
     .then(result => {
