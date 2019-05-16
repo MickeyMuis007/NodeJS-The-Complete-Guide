@@ -87,7 +87,7 @@ exports.postOrder = (req, res, next) => {
     .execPopulate()
     .then(user => {
       const products = user.cart.items.map(i => {
-        return {quantity: i.quantity, product: i.productId};
+        return {quantity: i.quantity, product: { ...i.productId._doc }};    // _doc is some metadata refering to the product object
       });
       const order = new Order({
         user: {
