@@ -139,7 +139,6 @@ exports.postReset = (req, res, next) => {
     const token = buffer.toString('hex');
     User.findOne({ email: req.body.email })
       .then(user => {
-        console.log('Im here', user)
         if (!user) {
           req.flash('error', 'No account with that email found.');
           return res.redirect('/reset');
